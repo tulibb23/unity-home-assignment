@@ -1,5 +1,5 @@
 import { Page, expect, test } from '@playwright/test';
-import { careersPage } from '../src/buildingBlocks/ui';
+import { careersPage, positionPage } from '../src/buildingBlocks/ui';
 
 const telAvivLocation = 'Tel Aviv';
 const rAndDTeam = 'R&D';
@@ -83,4 +83,10 @@ test(`Job Application`, async ({ page }) => {
   await careersPage.searchClick(page);
 
   await careersPage.resultClick(page, title);
+  await positionPage.waitForLoaded(page);
+
+  await positionPage.applyNowClick(page);
+  await positionPage.firstNameType(page, 'test1'); // TODO
+  await positionPage.lastNameType(page, 'test2');
+  await positionPage.attachResumeClick(page);
 });

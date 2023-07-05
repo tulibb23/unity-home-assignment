@@ -114,5 +114,10 @@ export const areThereResults = async (page: Page) => {
 };
 
 // this need to be uniq
-export const resultClick = async (page: Page, title: string) =>
-  await page.locator(resultXpath).getByText(title).click();
+export const resultClick = async (page: Page, title: string) => {
+  await page
+    .locator(
+      `//*[text()="${title}"]//ancestor::*[@class="container career-item"]`
+    )
+    .click();
+};
