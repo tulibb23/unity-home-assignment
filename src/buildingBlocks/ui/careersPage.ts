@@ -1,12 +1,3 @@
-// locations button
-// Teams button
-// job title
-// search button
-// results
-// verify results
-// click on result
-// clear the search
-
 import { Page } from 'playwright';
 
 export const url = `https://www.is.com/careers`;
@@ -40,10 +31,6 @@ export const waitForPage = async (page: Page) => {
 export const locationsClick = async (page: Page) =>
   await page.locator(dropdownSelector).getByText(locationsTxt).click();
 
-// export const dropdownClose = async (page: Page) =>
-//   await page.locator(`//*[@class="app_wrapper"]`).focus();
-
-// TODO: add function for multi selection
 export const selectLocation = async (page: Page, location: string) =>
   await page.locator(dropdownSelectedSelector).getByText(location).click();
 
